@@ -1,0 +1,21 @@
+{
+  "name": "project_1",
+  "version": "1.0.0",
+  "description": "A Project Management Tool for Elementary Students",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZibusisoMafaiti/Project_1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZibusisoMafaiti/Project_1/issues"
+  },
+  "homepage": "https://github.com/ZibusisoMafaiti/Project_1#readme"
+}

@@ -26,4 +26,12 @@ export const changeStudent= async (studentEmail, update) => {
   console.log("found", studentEmail);
 }
 
+export const addProjectStudent = async(studentEmail, projectId) => {
+   let selectedStudent = await students.findOne({email:studentEmail})
+  selectedStudent.Projects.push(projectId);
+  await selectedStudent.save()
+// await students.replaceOne({selectedStudent},selectedStudent)
+    
+  
+}
 

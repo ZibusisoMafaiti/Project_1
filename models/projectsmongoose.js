@@ -16,5 +16,10 @@ const projectsSchema = mongoose.Schema({
     return 0;
   };
 
+  export const changeProject= async (projectId, update) => {
+    let test = await projects.findOneAndReplace({_id:projectId},update)
+    console.log(test);
+    console.log("found", projectId);
+  }
   
   

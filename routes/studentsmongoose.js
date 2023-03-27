@@ -1,5 +1,5 @@
 import express, { response } from 'express';
-import { addAProject } from '../models/projectsmongoose.js';
+import { addAProject, changeProject } from '../models/projectsmongoose.js';
 import { addAStudent,changeStudent } from '../models/studentsmongoose.js';
 
 
@@ -25,4 +25,12 @@ router.post("/", async (request, response) => {
         changeStudent(studentEmail, changeData);
         response.send("student edited");
     });
+    router.patch("/projects", (request, response) => {
+        const projectId = request.query.projectId;
+        console.log(projectId);
+        const changeData = request.body;
+        changeProject(projectId, changeData);
+        response.send("You've edited");
+    });
+    
 export default router;

@@ -18,6 +18,7 @@ dotenv.config();
 let db = await mongoose.connect(process.env.MONGO_URL);
 
 app.use("/students",studentsRouter)
+app.use("/projects",projectsRouter)
 app.get("/test", (request,response) => {
 response.send("test endpoint working ")
 

@@ -1,6 +1,5 @@
 import { projects } from "./projects.js";
 
-
 export let students = [
   {
     id: 0,
@@ -8,7 +7,7 @@ export let students = [
     name: "Zibusiso",
     email: "zibs@thecoolschool.com",
     Grade: 3,
-    Projects: [projects[0],projects[1]],
+    Projects: [projects[0], projects[1]],
   },
   {
     id: 1,
@@ -16,9 +15,7 @@ export let students = [
     name: "Klay",
     email: "klay@thecoolschool.com",
     Grade: 3,
-    Projects: [projects[2],projects[1]]
-
-    
+    Projects: [projects[2], projects[1]],
   },
   {
     id: 2,
@@ -26,7 +23,7 @@ export let students = [
     name: "Steph",
     email: "steph@thecoolschool.com",
     Grade: 3,
-    Projects: [projects[2]]
+    Projects: [projects[2]],
   },
   {
     id: 4,
@@ -34,7 +31,7 @@ export let students = [
     name: "Draymond",
     email: "draymond@thecoolschool.com",
     Grade: 3,
-    Projects: [projects[2], projects[1]]
+    Projects: [projects[2], projects[1]],
   },
 ];
 
@@ -47,7 +44,7 @@ export function addAStudent(student) {
 
 export function addProjectDatabase(project) {
   projects.push(project);
- }
+}
 
 export function changeStudent(studentId, update) {
   const student = students.find((student) => student.id === studentId);
@@ -65,18 +62,13 @@ export function studentProjects(studentId) {
     .map((project) => project.Projects);
   return studentProjects;
 }
-export function allProjects(){
+export function allProjects() {
   return projects;
-};
+}
 
-export function addProjectStudent(studentId,projectobject){
-
- const selectedStudent = students.find((selectedStudent) => selectedStudent.id === studentId); // add new project to a student
- selectedStudent.Projects.push(projectobject);
-
-
-
- }
-  
-
-  
+export function addProjectStudent(studentId, projectobject) {
+  const selectedStudent = students.find(
+    (selectedStudent) => selectedStudent.id === studentId
+  ); // add new project to a student
+  selectedStudent.Projects.push(projectobject);
+}

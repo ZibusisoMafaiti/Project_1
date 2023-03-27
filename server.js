@@ -4,6 +4,8 @@ import dotenv from 'dotenv';
 
 import studentsRouter from "./routes/studentsmongoose.js";
 
+import projectsRouter from "./routes/projectsmongoose.js";
+
 // import{central} from "./routes/central.js";//commented out to set up mongo db
 
 const app = express();

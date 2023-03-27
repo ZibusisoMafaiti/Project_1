@@ -20,3 +20,10 @@ export const addAStudent = async (newStudent) => {
   return 0;
 };
 
+export const changeStudent= async (studentEmail, update) => {
+  let test = await students.findOneAndReplace({email:studentEmail},update)
+  console.log(test);
+  console.log("found", studentEmail);
+}
+
+

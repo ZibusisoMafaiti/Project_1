@@ -1,5 +1,5 @@
 import express, { response } from 'express';
-import { addAProject, changeProject } from '../models/projectsmongoose.js';
+import { addAProject, changeProject,getAllProjects } from '../models/projectsmongoose.js';
 
 
 
@@ -20,6 +20,10 @@ router.patch("/", (request, response) => {
     response.send("You've edited");
 });
 
+router.get("/",async(request,response)=> {
+    
+    response.send (await getAllProjects());
+});
 
 
 export default router;

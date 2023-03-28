@@ -22,4 +22,9 @@ const projectsSchema = mongoose.Schema({
     console.log("found", projectId);
   }
   
-  
+  export const getAllProjects = async () => {
+    let data =  await projects.find({});
+     console.log(data);
+     return(data);
+   
+   }

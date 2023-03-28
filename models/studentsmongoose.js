@@ -35,3 +35,12 @@ export const addProjectStudent = async(studentEmail, projectId) => {
   
 }
 
+
+
+export const getAllStudents = async () => {
+ let data =  await students.find({});
+  console.log(data);
+  return(data);
+
+}
+

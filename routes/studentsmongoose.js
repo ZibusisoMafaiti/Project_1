@@ -1,6 +1,6 @@
 import express, { request, response } from 'express';
 // import { addAProject, changeProject } from '../models/projectsmongoose.js';
-import { addAStudent,changeStudent,addProjectStudent } from '../models/studentsmongoose.js';
+import { addAStudent,changeStudent,addProjectStudent,getAllStudents } from '../models/studentsmongoose.js';
 
 
 
@@ -27,5 +27,15 @@ router.post("/", async (request, response) => {
  response.send("you added a new project");
 
     })
+
+    // central.get("/students", (request, response) => {
+    //     response.send(getAllStudents());
+    //   });
+    router.get("/",async(request,response)=> {
+        // getAllStudents();
+        response.send (await getAllStudents());
+    });
+
+
     
 export default router;

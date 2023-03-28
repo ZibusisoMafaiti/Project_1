@@ -20,13 +20,24 @@ router.post("/", async (request, response) => {
         changeStudent(studentEmail, changeData);
         response.send("student edited");
     });
-    router.patch("/projects", (request, response) => {
-        const studentEmail = request.query.email;
-        const projectId = request.query.projectId
- addProjectStudent (studentEmail, projectId) ;
- response.send("you added a new project");
+//     router.patch("/projects", (request, response) => {
+//         const studentEmail = request.query.email;
+//         console.log(studentEmail);
+//         const projectId = request.query.projectId;
+//         console.log(projectId);
+//  addProjectStudent (studentEmail, projectId) ;
+//  response.send("you added a new project");
 
-    })
+//     })
+router.patch("/projects", (request, response) => {
+    const studentEmail = request.query.email;
+    console.log(studentEmail);
+    const projectname = request.query.projectname;
+    console.log(projectname);
+addProjectStudent (studentEmail, projectname) ;
+response.send("you added a new project");
+
+})
 
     // central.get("/students", (request, response) => {
     //     response.send(getAllStudents());

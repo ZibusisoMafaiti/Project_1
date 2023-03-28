@@ -1,4 +1,5 @@
 import mongoose from "mongoose";
+import { projects } from "./projectsmongoose.js";
 
 const studentsSchema = mongoose.Schema({
   Password: String,
@@ -23,9 +24,17 @@ export const changeStudent = async (studentEmail, update) => {
   console.log("found", studentEmail);
 };
 
-export const addProjectStudent = async (studentEmail, projectId) => {
+// export const addProjectStudent = async (studentEmail, projectId) => {
+//   let selectedStudent = await students.findOne({ email: studentEmail });
+//   selectedStudent.Projects.push(projectId);
+//   await selectedStudent.save();
+//   // await students.replaceOne({selectedStudent},selectedStudent)
+// };
+
+export const addProjectStudent = async (studentEmail, projectname) => {
   let selectedStudent = await students.findOne({ email: studentEmail });
-  selectedStudent.Projects.push(projectId);
+  let selectedProject = await projects.findOne({project_title: projectname }) ;
+  selectedStudent.Projects.push(selectedProject);
   await selectedStudent.save();
   // await students.replaceOne({selectedStudent},selectedStudent)
 };

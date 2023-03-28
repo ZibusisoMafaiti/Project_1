@@ -10,6 +10,8 @@ const projectsSchema = mongoose.Schema({
 
   export const projects = mongoose.model("projects", projectsSchema);
 
+//   export const ProjectModel = mongoose.model
+
   export const addAProject = async (newProject) => {
     await projects.create(newProject);
     console.log("You've added project", newProject);

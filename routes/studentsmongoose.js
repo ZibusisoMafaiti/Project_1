@@ -1,6 +1,7 @@
 import express, { request, response } from 'express';
+import { projects } from '../models/projectsmongoose.js';
 // import { addAProject, changeProject } from '../models/projectsmongoose.js';
-import { addAStudent,changeStudent,addProjectStudent,getAllStudents } from '../models/studentsmongoose.js';
+import { addAStudent,changeStudent,addProjectStudent,getAllStudents, students,deleteStudent,deleteProjectStudent } from '../models/studentsmongoose.js';
 
 
 
@@ -29,15 +30,23 @@ router.post("/", async (request, response) => {
 //  response.send("you added a new project");
 
 //     })
-router.patch("/projects", (request, response) => {
+router.patch("/projects",async  (request, response) => {
     const studentEmail = request.query.email;
     console.log(studentEmail);
     const projectname = request.query.projectname;
     console.log(projectname);
-addProjectStudent (studentEmail, projectname) ;
-response.send("you added a new project");
+ addProjectStudent (studentEmail, projectname) ;
+response.send("Your new portfolio" + await addProjectStudent(studentEmail,projectname));
 
 })
+
+router.delete("/projects",async (request, response) => {
+    const studentEmail = request.query.email;
+     const projectId = request.query.projectId;
+    await deleteProjectStudent (studentEmail,projectId);
+    response.send("You've deleted a project")
+})
+
 
     // central.get("/students", (request, response) => {
     //     response.send(getAllStudents());
@@ -47,6 +56,11 @@ response.send("you added a new project");
         response.send (await getAllStudents());
     });
 
+    router.delete("/",async (request,response)=> {
+        const studentEmail = request.query.email;
+        deleteStudent(studentEmail);
+        response.send(await deleteStudent(studentEmail))
+    });
 
     
 export default router;

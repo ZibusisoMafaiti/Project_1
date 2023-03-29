@@ -36,8 +36,29 @@ export const addProjectStudent = async (studentEmail, projectname) => {
   let selectedProject = await projects.findOne({project_title: projectname }) ;
   selectedStudent.Projects.push(selectedProject);
   await selectedStudent.save();
+  return (selectedStudent.populate("Projects", "project_title"))
   // await students.replaceOne({selectedStudent},selectedStudent)
 };
+
+export const deleteProjectStudent = async (studentEmail, projectId) => {
+
+ 
+   let selectedStudent = await students.findOne({ email: studentEmail});
+   console.log(selectedStudent);
+  let selectedProject = await selectedStudent.Projects.indexOf(projectId);//indexOf(projectId)
+  console.log(selectedProject);
+   selectedStudent.Projects.splice(selectedProject, 1);
+await selectedStudent.save();
+  console.log(selectedStudent.Projects)};
+    // return (selectedStudent.Projects)};//.save()
+  // return (selectedProject.populate("Projects","project_title"))} return await selectedProject
+;
+
+export const deleteStudent = async(studentEmail) =>{ 
+   await students.findOneAndDelete({ email: studentEmail });
+   return(getAllStudents())
+};
+
 
 export const getAllStudents = async () => {
   let data = await students.find({}).populate("Projects", "project_title");
